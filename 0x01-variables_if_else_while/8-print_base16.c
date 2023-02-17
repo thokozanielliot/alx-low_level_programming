@@ -1,14 +1,15 @@
 #include <stdio.h>
 
 /**
- * mani - Prints numbers from 0 t0 9 and letters from a to e
- * 
- * Return: Always 0 (Succes)
+ * main - Prints numbers between 0 to 9 and letters between a to f.
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
 	int i;
-	for (i = 28; i < 38; i++)
+
+	for (i = 48; i < 58; i++)
 	{
 		putchar(i);
 	}
