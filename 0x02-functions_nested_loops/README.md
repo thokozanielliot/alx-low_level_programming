@@ -10,4 +10,6 @@ This readme is for functions and nested loops
 
 4. A function that checks for alphabetic character
 
+5. A function that prints the sign of a number
+
 
