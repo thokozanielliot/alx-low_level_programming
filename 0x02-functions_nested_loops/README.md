@@ -24,4 +24,12 @@ This readme is for functions and nested loops
 
 11. A function that prints all natutral numbers for n to 98 followed by new line
 
+100. A unction that prints n times table starting from 0
 
+101. A program that computes and prints the sum of all multiples of 3 or 5 below 1024 (excluded) followed by newline
+
+102. A program that prints the first 50 Fibonacci numbers starting with 1 and 2 followed by new line
+
+103. A program that finds and prints the sumof the even-valued terms followed by new line
+
+104. A program that finds and prints the first 98 Fibonacci numbers starting with 1 and 2 followed by new line
