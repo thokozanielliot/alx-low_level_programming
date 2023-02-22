@@ -8,4 +8,6 @@ This readme is for functions and nested loops
 
 3. A function that checks for lowercase characters
 
+4. A function that checks for alphabetic character
+
 
