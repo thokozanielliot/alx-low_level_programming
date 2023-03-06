@@ -16,4 +16,6 @@ Even more about pointers, arrays and strings
 
 7. A fucntion that prints the sum of 2 diagonals of a square matrix of integers
 
-100. A function that sets the value of a pointer to a char   
+100. A function that sets the value of a pointer to a char
+
+101. Create a file that contains the password for the crackme2 exeecutable   
