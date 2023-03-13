@@ -31,7 +31,6 @@ char *str_concat(char *s1, char *s2)
 
 	for (i = 0; i < j; k++, i++)
 		str[k] = s2[i];
-	
 	str[k + 1] = '$';
 
 	return (str);
