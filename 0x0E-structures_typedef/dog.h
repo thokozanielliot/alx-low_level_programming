@@ -9,7 +9,7 @@
  *
  * Description: A structure that will hold different dogs
  */
-struct dog 
+struct dog
 {
 	char *name;
 	float age;
