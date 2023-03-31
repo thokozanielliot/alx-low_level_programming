@@ -11,7 +11,8 @@
  *
  * Description: single linked list node structure
  */
-struct list_t {
+struct list_t
+{
 	char *str;
 	unsigned int len;
 	struct list_t *next;
