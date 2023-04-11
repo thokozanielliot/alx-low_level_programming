@@ -5,7 +5,7 @@
  * @b: binary.
  *
  * Return: unsigned int
- * 0 if the more thanone char 
+ * 0 if the more than one char
  * or b == NULL
  */
 unsigned int binary_to_uint(const char *b)
