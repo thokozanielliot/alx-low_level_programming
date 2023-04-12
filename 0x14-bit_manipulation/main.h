@@ -1,8 +1,5 @@
 #ifndef _MAIN_H_
-#define _MMAIN_H_
-
-#include <stddef.h>
-#include <math.h>
+#define _MAIN_H_
 
 int _putchar(char c);
 unsigned int binary_to_uint(const char *b);
