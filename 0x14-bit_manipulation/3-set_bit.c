@@ -5,7 +5,7 @@
  * @index: index number
  * @n: binary number
  *
- * Return: 1 if succed 
+ * Return: 1 if succed
  * -1 if error occured
  */
 int set_bit(unsigned long int *n, unsigned int index)
