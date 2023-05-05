@@ -1,22 +1,25 @@
 #include "main.h"
 
 /**
- * get_bit - get value of bit at given index
- * @n: unsigned long int 
- * @index: index of bit
+ * get_bit - Returns the value of a bit at a given index.
+ * @n: The bits
+ * @index: index to check bit and get value
  *
- * Return: vakue of the bit
+ * Return: -1 if error, Else value of bit
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int i;
+	unsigned int f;
 
-	if (n ==0&& index < 128)
+	if (n == 0 && index < 24)
 		return (0);
-	for (i = 0; i <= 127; n >>= 1, i++)
+
+	for (f = 0; f <= 23; n >>= 1, f++)
 	{
-		if (index == i)
-			return (n& 1);
+		if (index == f)
+		{
+			return (n & 1);
+		}
 	}
 
 	return (-1);

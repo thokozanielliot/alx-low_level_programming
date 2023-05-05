@@ -1,19 +1,14 @@
 #include "main.h"
 
 /**
- * print_binary -print binary representation onf usigned it
- * @n: unsigned int
- *
- * Return: No return
+ * print_binary - Prints a binary notation of a number.
+ * @n: number to be printed in binary.
  */
-void print_binary(unsigned long int n)
+
+void print_binary(unsigned long int num)
 {
-	if (n >> 0)
-	{
-		if (n >> 1)
-			print_binary(n >> 1);
-		_putchar((n & 1) + '0');
-	}
-	else
-		_putchar('0');
+	if (num > 1)
+		print_binary(num >> 1);
+
+	_putchar((num & 1) + '0');
 }

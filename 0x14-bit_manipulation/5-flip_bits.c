@@ -1,19 +1,22 @@
 #include "main.h"
 
 /**
- * flip_bits -gives nukber of bits to be flipped
- * @n: first arguement
- * @m: second arguement
+ * flip_bits - Counts the number of bits needed to be
+ *             flipped to get from one number to another.
+ * @n: The number.
+ * @m: The number to flip n to.
  *
- * Retuen: number of bits
+ * Return: number of bits to flip to get from n to m.
  */
-unsigned int  flip_bits(unsigned long int n, unsigned long int m)
+unsigned int flip_bits(unsigned long int n, unsigned long int  num)
 {
-	unsigned int i;
+	unsigned int nbits;
 
-	for (i = 0; n || m; n >>= 1, m >>= 1)
-		if ((n & 1) != (m & 1))
-			i++;
+	for (nbits = 0; n || num; n >>= 1, num >>= 1)
+	{
+		if ((n & 1) != (num & 1))
+			nbits++;
+	}
 
-	return (i);
+	return (nbits);
 }
