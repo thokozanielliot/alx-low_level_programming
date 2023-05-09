@@ -1,43 +1,51 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <elf.h>
 
 /**
- * prnt_address - prints the address
- * @ptr: magic
- *
- * Return: No return
+ * print_addr - prints address
+ * @ptr: magic.
+ * Return: no return.
  */
-void print_address(char *ptr)
+void print_addr(char *ptr)
 {
-	int i, start;
+	int i;
+	int begin;
 	char sys;
 
-	printf("  Entry pont address:                0x");
+	printf("  Entry point address:               0x");
+
 	sys = ptr[4] + '0';
-	if (sys == 1)
+	if (sys == '1')
 	{
-		start = 26;
+		begin = 26;
 		printf("80");
-		for (i = start; i >= 22; i--)
+		for (i = begin; i >= 22; i--)
 		{
-			if (ptr[i] >0)
+			if (ptr[i] > 0)
 				printf("%x", ptr[i]);
 			else if (ptr[i] < 0)
 				printf("%x", 256 + ptr[i]);
 		}
-
 		if (ptr[7] == 6)
 			printf("00");
 	}
 
 	if (sys == '2')
 	{
-		start = 26;
-		for (i = start; i > 23; i--)
+		begin = 26;
+		for (i = begin; i > 23; i--)
 		{
 			if (ptr[i] >= 0)
 				printf("%02x", ptr[i]);
+
 			else if (ptr[i] < 0)
 				printf("%02x", 256 + ptr[i]);
+
 		}
 	}
 	printf("\n");
@@ -45,9 +53,8 @@ void print_address(char *ptr)
 
 /**
  * print_type - prints type
- * @ptr: magic
- *
- * Return: No return
+ * @ptr: magic.
+ * Return: no return.
  */
 void print_type(char *ptr)
 {
@@ -58,7 +65,7 @@ void print_type(char *ptr)
 	else
 		type = ptr[17];
 
-	printf("Type:                                ");
+	printf("  Type:                              ");
 	if (type == 0)
 		printf("NONE (No file type)\n");
 	else if (type == 1)
@@ -68,24 +75,23 @@ void print_type(char *ptr)
 	else if (type == 3)
 		printf("DYN (Shared object file)\n");
 	else if (type == 4)
-		printf("CORE (Core fle)\n");
+		printf("CORE (Core file)\n");
 	else
 		printf("<unknown: %x>\n", type);
 }
 
 /**
  * print_osabi - prints osabi
- * @ptr: magic
- *
- * Return: No return
+ * @ptr: magic.
+ * Return: no return.
  */
 void print_osabi(char *ptr)
 {
 	char osabi = ptr[7];
 
-	printf("    OS/ABI:                                  ");
+	printf("  OS/ABI:                            ");
 	if (osabi == 0)
-		printf("UNIX - Sytem V\n");
+		printf("UNIX - System V\n");
 	else if (osabi == 2)
 		printf("UNIX - NetBSD\n");
 	else if (osabi == 6)
@@ -93,64 +99,64 @@ void print_osabi(char *ptr)
 	else
 		printf("<unknown: %x>\n", osabi);
 
-	printf(" ABI Version:                 %d\n", ptr[8]);
+	printf("  ABI Version:                       %d\n", ptr[8]);
 }
+
 
 /**
  * print_version - prints version
- * @ptr: magic
- *
- * Return: no return
+ * @ptr: magic.
+ * Return: no return.
  */
 void print_version(char *ptr)
 {
 	int version = ptr[6];
 
-	printf("   Version:          %d", version);
+	printf("  Version:                           %d", version);
+
 	if (version == EV_CURRENT)
 		printf(" (current)");
 
 	printf("\n");
 }
-
 /**
- * print_data = prints data
- * @ptr: magic
- *
- * Return: No return
+ * print_data - prints data
+ * @ptr: magic.
+ * Return: no return.
  */
 void print_data(char *ptr)
 {
 	char data = ptr[5];
 
-	printf(" Data:                         2's complement");
+	printf("  Data:                              2's complement");
 	if (data == 1)
-		printf(", little endan\n");
-	if (data == 2)
-		prntf(", big endian\n");
-}
+		printf(", little endian\n");
 
+	if (data == 2)
+		printf(", big endian\n");
+}
 /**
- * print_magic - prints magic info
- * @ptr: magic
- *
- * Return: No return
+ * print_magic - prints magic info.
+ * @ptr: magic.
+ * Return: no return.
  */
 void print_magic(char *ptr)
 {
 	int bytes;
 
-	printf("  Magic  ");
-	for (bytes = 0; bytes <16; bytes++)
-		printf("%02x", ptr[bytes]);
+	printf("  Magic:  ");
+
+	for (bytes = 0; bytes < 16; bytes++)
+		printf(" %02x", ptr[bytes]);
+
 	printf("\n");
+
 }
 
 /**
- * check_sys - check the version system
- * @ptr: magc
- *
- * Return: no return
+ * check_sys - check the version system.
+ * @ptr: magic.
+ * Return: no return.
  */
 void check_sys(char *ptr)
 {
