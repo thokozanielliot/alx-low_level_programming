@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * prnt_binary - print binary number
+ * print_binary - print binary number
  * @num: number to be printed in bnary
  *
  * Return: No return
