@@ -4,7 +4,7 @@
  * add_dbodeint_end - adds a new node at the end of a dlistint_T list
  * @head: head of a doubly linked list
  * @n: element to be added
- * 
+ *
  * Return: address of the new element
  * NULL if it failed
 */
